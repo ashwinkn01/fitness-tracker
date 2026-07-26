@@ -12,4 +12,7 @@ public interface BudgetRepository extends JpaRepository<Budget, Long> {
     
     // Used to check if a budget already exists before creating a new one
     Optional<Budget> findByUserIdAndCategoryIdAndMonthYear(Long userId, Long categoryId, String monthYear);
+
+    // Fetch all budgets for a user in a specific month
+    List<Budget> findByUserIdAndMonthYear(Long userId, String monthYear);
 }

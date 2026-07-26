@@ -32,7 +32,7 @@ public class TransactionController {
             @RequestParam(defaultValue = "10") int size) {
         
         // Sort by date descending (newest first)
-        Pageable pageable = PageRequest.of(page, size, Sort.by("date").descending());
+        Pageable pageable = PageRequest.of(page, size, Sort.by("txnDate").descending());
         Page<Transaction> transactions = transactionService.getUserTransactions(pageable);
         return ResponseEntity.ok(transactions);
     }

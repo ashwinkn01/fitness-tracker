@@ -19,6 +19,8 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
            "AND FUNCTION('DATE_FORMAT', t.txnDate, '%Y-%m') = :monthYear " +
            "GROUP BY t.category.name")
     List<Object[]> sumExpensesByCategory(@Param("userId") Long userId, @Param("monthYear") String monthYear);
+
     // Fetches a paginated list of transactions strictly for the logged-in user
     Page<Transaction> findByUserId(Long userId, Pageable pageable);
+
 }
