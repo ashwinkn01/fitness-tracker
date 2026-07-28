@@ -1,0 +1,49 @@
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <h1>Welcome back, {{ username() }}!</h1>
+    <p>Here is your financial overview.</p>
+  </header>
+
+  <div class="dashboard-grid">
+    <!-- Updated Stat Card 1: Expense Breakdown Chart -->
+    <mat-card class="stat-card">
+      <mat-card-header>
+        <mat-card-title>Expense Breakdown</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <!-- The chart container gives the canvas a boundary to fill -->
+        <div class="chart-container">
+          <!-- We read the signals using () and bind them to the canvas -->
+          <canvas baseChart
+            [data]="pieChartData()"
+            [options]="pieChartOptions()"
+            [type]="pieChartType()">
+          </canvas>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Inside your dashboard-grid ... -->
+
+    <!-- Stat Card 2 -->
+    <mat-card class="stat-card">
+      <mat-card-header>
+        <mat-card-title>Total Balance</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <!-- The currency pipe automatically formats the number as $1,234.56 -->
+        <h2>{{ totalBalance() | currency }}</h2>
+      </mat-card-content>
+    </mat-card>
+
+    
+    <mat-card class="stat-card">
+      <mat-card-header>
+        <mat-card-title>Monthly Expenses</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h2>{{ monthlyExpenses() | currency }}</h2>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

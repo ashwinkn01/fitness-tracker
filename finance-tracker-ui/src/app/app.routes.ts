@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login';
+import { LoginComponent } from './components/login/login'; 
+import { DashboardComponent } from './components/dashboard/dashboard'; 
+import { authGuard } from './guards/auth-guard'; 
 
 export const routes: Routes = [
   { 
@@ -7,12 +9,17 @@ export const routes: Routes = [
     component: LoginComponent 
   },
   { 
+    path: 'dashboard', 
+    component: DashboardComponent,
+    canActivate: [authGuard] 
+  },
+  { 
     path: '', 
     redirectTo: '/login', 
-    pathMatch: 'full' // When the user visits 'localhost:4200/', force them to login
+    pathMatch: 'full' 
   },
   { 
     path: '**', 
-    redirectTo: '/login' // Wildcard route: catches typos like 'localhost:4200/lognn'
+    redirectTo: '/login' 
   }
 ];

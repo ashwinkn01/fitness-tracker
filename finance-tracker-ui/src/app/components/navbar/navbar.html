@@ -1,1 +1,12 @@
-<p>navbar works!</p>
+<mat-toolbar color="primary">
+  <span>Finance Tracker</span>
+  
+  <!-- This empty span acts as a spring, pushing the following buttons to the far right -->
+  <span class="spacer"></span>
+
+  <!-- The ng-container doesn't render in the DOM, it just holds our *ngIf logic -->
+  <ng-container *ngIf="authService.isLoggedIn()">
+    <button mat-button routerLink="/dashboard">Dashboard</button>
+    <button mat-flat-button color="accent" (click)="logout()">Logout</button>
+  </ng-container>
+</mat-toolbar>

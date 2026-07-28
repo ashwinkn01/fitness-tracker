@@ -1,0 +1,40 @@
+.dashboard-container {
+  padding: 24px;
+  max-width: 1200px; /* Keeps the dashboard from stretching infinitely on ultrawide monitors */
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  margin-bottom: 24px;
+
+  h1 {
+    margin: 0 0 8px 0;
+    color: var(--mat-sys-on-surface);
+  }
+  p {
+    margin: 0;
+    color: var(--mat-sys-on-surface-variant);
+  }
+}
+
+.dashboard-grid {
+  display: grid;
+  /* Auto-fit creates a responsive grid without needing media queries */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.stat-card {
+  h2 {
+    font-size: 2.5rem;
+    margin: 16px 0 0 0;
+    color: var(--mat-sys-primary);
+  }
+}
+
+.chart-container {
+  position: relative;
+  height: 250px; /* Forces the pie chart to be a reasonable size */
+  width: 100%;
+  margin-top: 16px;
+}
